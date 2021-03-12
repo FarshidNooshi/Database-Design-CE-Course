@@ -57,10 +57,7 @@ public class Main {
                         } else
                             System.out.println("false");
                     }
-                    default -> {
-                        System.out.println("Invalid Input");
-                        System.exit(1);
-                    }
+                    default -> System.out.println("Invalid Input");
                 }
             }
         } catch (Exception exception) {
