@@ -7,5 +7,6 @@ public class Main {
         jedis.set("events/city/rome", "32,15,223,828");
         String cachedResponse = jedis.get("events/city/rome");
         System.out.println(cachedResponse);
+        System.out.println(jedis.get("sth"));
     }
 }
