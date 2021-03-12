@@ -63,6 +63,8 @@ public class Main {
                     }
                 }
             }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
     }
