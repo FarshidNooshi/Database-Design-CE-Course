@@ -57,6 +57,30 @@ namespace Final_Project
             {
                 loginForm.add_hashtag_of_ava(this);
             }
+            if (LoginForm.type.Equals("GetAvasWithSpecialSign"))
+            {
+                loginForm.GetAvasWithSpecialSign(this);
+            }
+            if (LoginForm.type.Equals("likeAva"))
+            {
+                loginForm.likeAva(this);
+            }
+            if (LoginForm.type.Equals("ShowNumberOfLikes"))
+            {
+                loginForm.ShowNumberOfLikes(this);
+            }
+            if (LoginForm.type.Equals("showLikersOfAnAva"))
+            {
+                loginForm.showLikersOfAnAva(this);
+            }
+            if (LoginForm.type.Equals("send_message"))
+            {
+                loginForm.send_message(this);
+            }
+            if (LoginForm.type.Equals("GetMessagesFromSpecialUser"))
+            {
+                loginForm.GetMessagesFromSpecialUser(this);
+            }
         }
     }
 }

@@ -219,8 +219,9 @@ namespace Final_Project
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(325, 34);
             this.button33.TabIndex = 33;
-            this.button33.Text = "button33";
+            this.button33.Text = "Get Avas With Special Sign";
             this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // button34
             // 
@@ -231,8 +232,9 @@ namespace Final_Project
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(325, 34);
             this.button34.TabIndex = 34;
-            this.button34.Text = "button34";
+            this.button34.Text = "like Ava";
             this.button34.UseVisualStyleBackColor = false;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // button35
             // 
@@ -243,8 +245,9 @@ namespace Final_Project
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(325, 34);
             this.button35.TabIndex = 35;
-            this.button35.Text = "button35";
+            this.button35.Text = "Show Number Of Likes";
             this.button35.UseVisualStyleBackColor = false;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // button36
             // 
@@ -255,8 +258,9 @@ namespace Final_Project
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(325, 34);
             this.button36.TabIndex = 36;
-            this.button36.Text = "button36";
+            this.button36.Text = "show Likers Of An Ava";
             this.button36.UseVisualStyleBackColor = false;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
             // button37
             // 
@@ -267,8 +271,9 @@ namespace Final_Project
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(325, 34);
             this.button37.TabIndex = 37;
-            this.button37.Text = "button37";
+            this.button37.Text = "show Popular Avas";
             this.button37.UseVisualStyleBackColor = false;
+            this.button37.Click += new System.EventHandler(this.button37_Click);
             // 
             // button38
             // 
@@ -279,8 +284,9 @@ namespace Final_Project
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(325, 34);
             this.button38.TabIndex = 38;
-            this.button38.Text = "button38";
+            this.button38.Text = "send_message";
             this.button38.UseVisualStyleBackColor = false;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
             // button39
             // 
@@ -291,8 +297,9 @@ namespace Final_Project
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(325, 34);
             this.button39.TabIndex = 39;
-            this.button39.Text = "button39";
+            this.button39.Text = "Get Messages From Special User";
             this.button39.UseVisualStyleBackColor = false;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
             // 
             // button40
             // 
@@ -303,8 +310,9 @@ namespace Final_Project
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(325, 34);
             this.button40.TabIndex = 40;
-            this.button40.Text = "button40";
+            this.button40.Text = "Get_List_Of_Senders";
             this.button40.UseVisualStyleBackColor = false;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
             // LoginForm
             // 
