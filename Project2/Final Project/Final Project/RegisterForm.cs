@@ -91,14 +91,14 @@ namespace Final_Project
 
         private void submit_button_click(object sender, EventArgs e)
         {
-            var query = @"log_in";
+            var query = @"create_account";
             var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
-            command.Parameters.Add(new MySqlParameter("@first_name", MySqlDbType.VarChar));
-            command.Parameters.Add(new MySqlParameter("@second_name", MySqlDbType.VarChar));
-            command.Parameters.Add(new MySqlParameter("@second_name", MySqlDbType.VarChar));
-            command.Parameters.Add(new MySqlParameter("@birth_date", MySqlDbType.Timestamp));
-            command.Parameters.Add(new MySqlParameter("@password", MySqlDbType.VarChar));
-            command.Parameters.Add(new MySqlParameter("@Bio", MySqlDbType.VarChar));
+            command.Parameters.Add(new MySqlParameter("@first_name", firstnamebox.Text));
+            command.Parameters.Add(new MySqlParameter("@second_name", secondnameBox.Text));
+            command.Parameters.Add(new MySqlParameter("@user_name", userbox.Text));
+            command.Parameters.Add(new MySqlParameter("@birth_date", birthdatebox.Text));
+            command.Parameters.Add(new MySqlParameter("@password", passwordBox.Text));
+            command.Parameters.Add(new MySqlParameter("@Bio", BioBox.Text));
             command.CommandType = CommandType.StoredProcedure;
             try
             {

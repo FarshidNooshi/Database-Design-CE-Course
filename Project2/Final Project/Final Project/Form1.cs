@@ -31,7 +31,7 @@ namespace Final_Project
             InitializeComponent();
             _dictionary = new Dictionary<string, Form>()
             {
-                {"register", new RegisterForm()},
+              //  {"register", new RegisterForm()},
                 {"log_in", new LoginForm()}
             };
             _mySqlConnectionString =
