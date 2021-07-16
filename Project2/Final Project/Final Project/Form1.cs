@@ -23,10 +23,17 @@ namespace Final_Project
         private const string MySqlDataBase = "proj1_db_aut";
         private string _mySqlConnectionString;
         private MySqlConnection _mySqlConnection;
+        private Dictionary<string, Form> _dictionary;
+        private string nextPage = "log_in";
 
         public Form1()
         {
             InitializeComponent();
+            _dictionary = new Dictionary<string, Form>()
+            {
+                {"register", new RegisterForm()},
+                {"log_in", new LoginForm()}
+            };
             _mySqlConnectionString =
                 $"datasource={MySqlDatasource};port={MySqlPort};username={MySqlUsername};password={MySqlPassword};database={MySqlDataBase}";
             try
@@ -69,8 +76,7 @@ namespace Final_Project
                 var result = command.Parameters["@result"].Value;
                 if (result.Equals(username_box.Text))
                 {
-                    //success
-                    MessageBox.Show(@"success");
+                    timer1.Start();
                 }
                 else
                 {
@@ -102,6 +108,7 @@ namespace Final_Project
 
         private void register_button_Click(object sender, EventArgs e)
         {
+            nextPage = "register";
             timer1.Start();
         }
 
@@ -115,7 +122,7 @@ namespace Final_Project
             {
                 timer1.Stop();
                 Hide();
-                var newForm = new RegisterForm();
+                var newForm = _dictionary[nextPage];
                 newForm.ShowDialog();
                 Close();
             }

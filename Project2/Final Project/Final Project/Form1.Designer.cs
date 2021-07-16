@@ -47,7 +47,7 @@ namespace Final_Project
             this.username_box.Font = new System.Drawing.Font("Sylfaen", 22F);
             this.username_box.ForeColor = System.Drawing.Color.White;
             this.username_box.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.username_box.Location = new System.Drawing.Point(366, 130);
+            this.username_box.Location = new System.Drawing.Point(384, 165);
             this.username_box.Name = "username_box";
             this.username_box.Size = new System.Drawing.Size(319, 77);
             this.username_box.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace Final_Project
             this.password_box.BackColor = System.Drawing.Color.Maroon;
             this.password_box.Font = new System.Drawing.Font("Sylfaen", 22F);
             this.password_box.ForeColor = System.Drawing.Color.White;
-            this.password_box.Location = new System.Drawing.Point(366, 213);
+            this.password_box.Location = new System.Drawing.Point(384, 248);
             this.password_box.Name = "password_box";
             this.password_box.Size = new System.Drawing.Size(319, 77);
             this.password_box.TabIndex = 1;
@@ -72,7 +72,7 @@ namespace Final_Project
             this.login_button.BackColor = System.Drawing.Color.DarkCyan;
             this.login_button.Font = new System.Drawing.Font("Sylfaen", 22F);
             this.login_button.ForeColor = System.Drawing.Color.White;
-            this.login_button.Location = new System.Drawing.Point(366, 296);
+            this.login_button.Location = new System.Drawing.Point(384, 331);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(319, 81);
             this.login_button.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace Final_Project
             this.register_button.BackColor = System.Drawing.Color.DarkCyan;
             this.register_button.Font = new System.Drawing.Font("Sylfaen", 22F);
             this.register_button.ForeColor = System.Drawing.Color.White;
-            this.register_button.Location = new System.Drawing.Point(366, 383);
+            this.register_button.Location = new System.Drawing.Point(384, 418);
             this.register_button.Name = "register_button";
             this.register_button.Size = new System.Drawing.Size(319, 81);
             this.register_button.TabIndex = 4;
@@ -103,14 +103,18 @@ namespace Final_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1078, 643);
+            this.ClientSize = new System.Drawing.Size(1094, 660);
             this.Controls.Add(this.register_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.password_box);
             this.Controls.Add(this.username_box);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Database Design Project";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
         }
