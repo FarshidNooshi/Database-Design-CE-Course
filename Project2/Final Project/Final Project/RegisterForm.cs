@@ -15,7 +15,6 @@ namespace Final_Project
         private const string MySqlDataBase = "proj1_db_aut";
         private string _mySqlConnectionString;
         private MySqlConnection _mySqlConnection;
-        private Dictionary<string, Form> _dictionary;
         private string nextPage = "log_in";
         private string _password = "";
         private int _richTextlent = 1;
@@ -23,11 +22,6 @@ namespace Final_Project
         public RegisterForm()
         {
             InitializeComponent();
-            _dictionary = new Dictionary<string, Form>()
-            {
-                {"register", new RegisterForm()},
-                {"log_in", new LoginForm()}
-            };
             _mySqlConnectionString =
                 $"datasource={MySqlDatasource};port={MySqlPort};username={MySqlUsername};password={MySqlPassword};database={MySqlDataBase}";
             try
@@ -74,19 +68,19 @@ namespace Final_Project
 
         private void password_box_TextChanged(object sender, EventArgs e)
         {
-            if (submit_button.Text.Length == _richTextlent)
+            if (passwordBox.Text.Length == _richTextlent)
             {
-                _password += submit_button.Text[0].ToString();
-                submit_button.Text = submit_button.Text.Remove(0, 1);
-                submit_button.Text += "*";
+                _password += passwordBox.Text[0].ToString();
+                passwordBox.Text = passwordBox.Text.Remove(0, 1);
+                passwordBox.Text += "*";
             }
             else
             {
                 _password = "";
-                submit_button.Text = "";
+                passwordBox.Text = "";
             }
 
-            _richTextlent = submit_button.Text.Length + 1;
+            _richTextlent = passwordBox.Text.Length + 1;
         }
 
         private void submit_button_click(object sender, EventArgs e)
@@ -103,7 +97,7 @@ namespace Final_Project
             try
             {
                 var result = command.ExecuteNonQuery();
-                if (result != 0)
+                if (result != 2)
                 {
                     MessageBox.Show(@"not successful!");
                 }
@@ -128,7 +122,7 @@ namespace Final_Project
             {
                 timer1.Stop();
                 Hide();
-                var newForm = _dictionary[nextPage];
+                var newForm = new LoginForm();
                 newForm.ShowDialog();
                 Close();
             }
