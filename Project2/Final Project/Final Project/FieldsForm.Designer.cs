@@ -179,6 +179,7 @@ namespace Final_Project
             this.submit_button.TabIndex = 26;
             this.submit_button.Text = "submit";
             this.submit_button.UseVisualStyleBackColor = false;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // FieldsForm
             // 
@@ -214,5 +215,7 @@ namespace Final_Project
         public System.Windows.Forms.Label label3 { get; set; }
         public System.Windows.Forms.Label label4 { get; set; }
         private System.Windows.Forms.Button submit_button;
+        private LoginForm loginForm;
+
     }
 }

@@ -63,7 +63,7 @@ namespace Final_Project
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(325, 34);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "show_logs";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -76,8 +76,9 @@ namespace Final_Project
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(325, 34);
             this.button21.TabIndex = 20;
-            this.button21.Text = "button21";
+            this.button21.Text = "send ava";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button23
             // 
@@ -88,8 +89,9 @@ namespace Final_Project
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(325, 34);
             this.button23.TabIndex = 23;
-            this.button23.Text = "button23";
+            this.button23.Text = "get avas of someone";
             this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button24
             // 
@@ -100,8 +102,9 @@ namespace Final_Project
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(325, 34);
             this.button24.TabIndex = 24;
-            this.button24.Text = "button24";
+            this.button24.Text = "following Someone";
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button25
             // 
@@ -112,8 +115,9 @@ namespace Final_Project
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(325, 34);
             this.button25.TabIndex = 25;
-            this.button25.Text = "button25";
+            this.button25.Text = "unfollowing Someone";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button26
             // 
@@ -124,8 +128,9 @@ namespace Final_Project
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(325, 34);
             this.button26.TabIndex = 26;
-            this.button26.Text = "button26";
+            this.button26.Text = "block Someone";
             this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button27
             // 
@@ -136,8 +141,9 @@ namespace Final_Project
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(325, 34);
             this.button27.TabIndex = 27;
-            this.button27.Text = "button27";
+            this.button27.Text = "unblock Someone";
             this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button28
             // 
@@ -148,8 +154,9 @@ namespace Final_Project
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(325, 34);
             this.button28.TabIndex = 28;
-            this.button28.Text = "button28";
+            this.button28.Text = "show Avas From Followings";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // button29
             // 
@@ -160,8 +167,9 @@ namespace Final_Project
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(325, 34);
             this.button29.TabIndex = 29;
-            this.button29.Text = "button29";
+            this.button29.Text = "show Avas From Specific User";
             this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // button30
             // 
@@ -172,8 +180,9 @@ namespace Final_Project
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(325, 34);
             this.button30.TabIndex = 30;
-            this.button30.Text = "button30";
+            this.button30.Text = "Add Oppinion";
             this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // button31
             // 
