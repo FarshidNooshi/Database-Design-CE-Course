@@ -37,7 +37,7 @@ namespace Final_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error: " + ex);
+                MessageBox.Show(@"error: " + ex);
             }
         }
 
@@ -105,10 +105,12 @@ namespace Final_Project
                 var result = command.ExecuteNonQuery();
                 if (result != 0)
                 {
-                    MessageBox.Show(
+                    MessageBox.Show(@"not successful!");
                 }
-
-                timer1.Start();
+                else
+                {
+                    timer1.Start();
+                }
             }
             catch (Exception ex)
             {

@@ -164,6 +164,7 @@ namespace Final_Project
             this.userbox.Size = new System.Drawing.Size(289, 58);
             this.userbox.TabIndex = 13;
             this.userbox.Text = "username";
+            this.userbox.Enter += new System.EventHandler(this.username_box_enter);
             // 
             // BioBox
             // 
@@ -177,6 +178,7 @@ namespace Final_Project
             this.BioBox.Size = new System.Drawing.Size(583, 296);
             this.BioBox.TabIndex = 14;
             this.BioBox.Text = "...";
+            this.BioBox.Enter += new System.EventHandler(this.bio_box_enter);
             // 
             // passwordBox
             // 
@@ -191,6 +193,7 @@ namespace Final_Project
             this.passwordBox.TabIndex = 15;
             this.passwordBox.Text = "password";
             this.passwordBox.TextChanged += new System.EventHandler(this.password_box_TextChanged);
+            this.passwordBox.Enter += new System.EventHandler(this.password_box_enter);
             // 
             // secondnameBox
             // 
@@ -204,6 +207,7 @@ namespace Final_Project
             this.secondnameBox.Size = new System.Drawing.Size(289, 58);
             this.secondnameBox.TabIndex = 16;
             this.secondnameBox.Text = "second name";
+            this.secondnameBox.Enter += new System.EventHandler(this.secondname_box_enter);
             // 
             // firstnamebox
             // 
@@ -217,6 +221,7 @@ namespace Final_Project
             this.firstnamebox.Size = new System.Drawing.Size(289, 58);
             this.firstnamebox.TabIndex = 17;
             this.firstnamebox.Text = "first name";
+            this.firstnamebox.Enter += new System.EventHandler(this.firstname_box_enter);
             // 
             // birthdatebox
             // 
@@ -230,6 +235,7 @@ namespace Final_Project
             this.birthdatebox.Size = new System.Drawing.Size(289, 58);
             this.birthdatebox.TabIndex = 18;
             this.birthdatebox.Text = "yyyy-mm-dd hh:mm:ss";
+            this.birthdatebox.Enter += new System.EventHandler(this.birthdate_box_enter);
             // 
             // timer1
             // 
