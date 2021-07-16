@@ -29,6 +29,12 @@
       <Compile Update="LoginForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="FieldsForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="result page.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>
