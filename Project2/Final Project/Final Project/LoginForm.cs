@@ -298,5 +298,80 @@ namespace Final_Project
                 form.Close();
             }
         }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            var form = new FieldsForm(this);
+            type = "GetOpinionsOfAAva";
+            form.box1.Visible = true;
+            form.label1.Visible = true;
+            form.box1.Text = "";
+            form.label1.Text = "ava_id";
+            form.ShowDialog();
+        }
+
+        public void GetOpinionsOfAAva(FieldsForm form)
+        {
+            var query = @"GetOpinionsOfAAva";
+            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            command.Parameters.Add(new MySqlParameter("@ava_id", form.box1.Text));
+            command.CommandType = CommandType.StoredProcedure;
+            var result = command.ExecuteReader();
+            var resultPage = new result_page();
+            resultPage.listView1.Columns.Add("sender_user", 300);
+            resultPage.listView1.Columns.Add("time", 500);
+            resultPage.listView1.Columns.Add("Attributes", 400);
+            resultPage.listView1.Columns.Add("Ava_id", 400);
+            initListView(resultPage);
+            while (result.Read())
+            {
+                var arr = new List<string>();
+                arr.Add(result.GetString(0));
+                arr.Add(result.GetString(1));
+                arr.Add(result.GetString(2));
+                arr.Add(result.GetString(3));
+                resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
+            }
+            resultPage.ShowDialog();
+            form.Close();
+        }
+
+        private void button32_Click(object sender, EventArgs e)//add_hashtag_of_ava
+        {
+            var form = new FieldsForm(this);
+            type = "add_hashtag_of_ava";
+            form.box1.Visible = true;
+            form.label1.Visible = true;
+            form.box1.Text = "";
+            form.label1.Text = "sign";
+
+            form.box2.Visible = true;
+            form.label2.Visible = true;
+            form.box2.Text = "";
+            form.label2.Text = "avaID";
+
+            form.box3.Visible = true;
+            form.label3.Visible = true;
+            form.box3.Text = "";
+            form.label3.Text = "time";
+            form.ShowDialog();
+        }
+
+        public void add_hashtag_of_ava(FieldsForm form)
+        {
+            var query = @"add_hashtag_of_ava";
+            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            command.Parameters.Add(new MySqlParameter("@sign", form.box1.Text));
+            command.Parameters.Add(new MySqlParameter("@avaID", form.box2.Text));
+            command.Parameters.Add(new MySqlParameter("@time", form.box3.Text));
+            command.CommandType = CommandType.StoredProcedure;
+            var result = command.ExecuteNonQuery();
+            if (result == 2)
+            {
+                MessageBox.Show("success");
+                form.Close();
+            }
+            form.Close();
+        }
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Final_Project
 {
@@ -58,7 +52,7 @@ namespace Final_Project
         private void login_button_Click(object sender, EventArgs e)
         {
             var query = @"log_in";
-            var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
+            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
             command.Parameters.Add(new MySqlParameter("@result", MySqlDbType.VarChar));
             command.Parameters.Add(new MySqlParameter("@username", username_box.Text));
             command.Parameters.Add(new MySqlParameter("@password", _password));

@@ -193,8 +193,9 @@ namespace Final_Project
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(325, 34);
             this.button31.TabIndex = 31;
-            this.button31.Text = "button31";
+            this.button31.Text = "Get Opinions Of A Ava";
             this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // button32
             // 
@@ -205,8 +206,9 @@ namespace Final_Project
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(325, 34);
             this.button32.TabIndex = 32;
-            this.button32.Text = "button32";
+            this.button32.Text = "add hashtag of ava";
             this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // button33
             // 

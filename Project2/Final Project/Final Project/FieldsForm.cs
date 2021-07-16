@@ -49,6 +49,14 @@ namespace Final_Project
             {
                 loginForm.AddOppinion(this);
             }
+            if (LoginForm.type.Equals("GetOpinionsOfAAva"))
+            {
+                loginForm.GetOpinionsOfAAva(this);
+            }
+            if (LoginForm.type.Equals("add_hashtag_of_ava"))
+            {
+                loginForm.add_hashtag_of_ava(this);
+            }
         }
     }
 }

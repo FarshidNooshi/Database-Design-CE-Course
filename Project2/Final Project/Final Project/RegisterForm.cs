@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Final_Project
 {
@@ -86,7 +85,7 @@ namespace Final_Project
         private void submit_button_click(object sender, EventArgs e)
         {
             var query = @"create_account";
-            var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
+            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
             command.Parameters.Add(new MySqlParameter("@first_name", firstnamebox.Text));
             command.Parameters.Add(new MySqlParameter("@second_name", secondnameBox.Text));
             command.Parameters.Add(new MySqlParameter("@user_name", userbox.Text));
