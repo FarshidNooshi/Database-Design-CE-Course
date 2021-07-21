@@ -34,12 +34,12 @@ namespace Final_Project
             }
         }
 
-        private void button1_Click(object sender, System.EventArgs e)// show_logs
+        private void button1_Click(object sender, System.EventArgs e) // show_logs
         {
             var query = @"show_logs";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("user name", 300);
             resultPage.listView1.Columns.Add("log time", 500);
@@ -53,6 +53,7 @@ namespace Final_Project
                 arr.Add(result.GetString(2));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
         }
 
@@ -63,7 +64,7 @@ namespace Final_Project
             resultPage.listView1.FullRowSelect = true;
         }
 
-        private void button21_Click(object sender, EventArgs e)// send_ava
+        private void button21_Click(object sender, EventArgs e) // send_ava
         {
             var form = new FieldsForm(this);
             type = "send_ava";
@@ -72,29 +73,29 @@ namespace Final_Project
             form.box1.Text = "";
             form.label1.Text = "attributes";
             form.ShowDialog();
-
         }
 
         public void send_ava(FieldsForm form)
         {
             var query = @"send_ava";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@attributes", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
             if (result == 2)
             {
                 MessageBox.Show("success");
-                form.Close();
             }
+
+            form.Close();
         }
 
-        private void button23_Click(object sender, EventArgs e)//get_avas_of_someone
+        private void button23_Click(object sender, EventArgs e) //get_avas_of_someone
         {
             var query = @"get_avas_of_someone";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("sender_user", 300);
             resultPage.listView1.Columns.Add("time", 500);
@@ -108,10 +109,11 @@ namespace Final_Project
                 arr.Add(result.GetString(2));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
         }
 
-        private void button24_Click(object sender, EventArgs e)//followingSomeone
+        private void button24_Click(object sender, EventArgs e) //followingSomeone
         {
             var form = new FieldsForm(this);
             type = "followingSomeone";
@@ -125,7 +127,7 @@ namespace Final_Project
         public void followingSomeone(FieldsForm form)
         {
             var query = @"followingSomeone";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@following_user", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
@@ -136,7 +138,7 @@ namespace Final_Project
             }
         }
 
-        private void button25_Click(object sender, EventArgs e)//unfollowingSomeone
+        private void button25_Click(object sender, EventArgs e) //unfollowingSomeone
         {
             var form = new FieldsForm(this);
             type = "unfollowingSomeone";
@@ -150,7 +152,7 @@ namespace Final_Project
         public void unfollowingSomeone(FieldsForm form)
         {
             var query = @"unfollowingSomeone";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@following_user", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
@@ -161,7 +163,7 @@ namespace Final_Project
             }
         }
 
-        private void button26_Click(object sender, EventArgs e)//blockSomeone
+        private void button26_Click(object sender, EventArgs e) //blockSomeone
         {
             var form = new FieldsForm(this);
             type = "blockSomeone";
@@ -175,7 +177,7 @@ namespace Final_Project
         public void blockSomeone(FieldsForm form)
         {
             var query = @"blockSomeone";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@blocked_user", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
@@ -200,7 +202,7 @@ namespace Final_Project
         public void unblockSomeone(FieldsForm form)
         {
             var query = @"unblockSomeone";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@blocked_user", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
@@ -214,9 +216,9 @@ namespace Final_Project
         private void button28_Click(object sender, EventArgs e)
         {
             var query = @"showAvasFromFollowings";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("Attributes", 300);
             resultPage.listView1.Columns.Add("time", 500);
@@ -230,6 +232,7 @@ namespace Final_Project
                 arr.Add(result.GetString(2));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
         }
 
@@ -247,10 +250,10 @@ namespace Final_Project
         public void showAvasFromSpecificUser(FieldsForm form)
         {
             var query = @"showAvasFromSpecificUser";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@specific_user", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("Attributes", 300);
             resultPage.listView1.Columns.Add("time", 500);
@@ -264,6 +267,7 @@ namespace Final_Project
                 arr.Add(result.GetString(2));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
@@ -287,7 +291,7 @@ namespace Final_Project
         public void AddOppinion(FieldsForm form)
         {
             var query = @"AddOppinion";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@attributes", form.box1.Text));
             command.Parameters.Add(new MySqlParameter("@ava_id", form.box2.Text));
             command.CommandType = CommandType.StoredProcedure;
@@ -313,10 +317,10 @@ namespace Final_Project
         public void GetOpinionsOfAAva(FieldsForm form)
         {
             var query = @"GetOpinionsOfAAva";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@ava_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("sender_user", 300);
             resultPage.listView1.Columns.Add("time", 500);
@@ -332,11 +336,12 @@ namespace Final_Project
                 arr.Add(result.GetString(3));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
 
-        private void button32_Click(object sender, EventArgs e)//add_hashtag_of_ava
+        private void button32_Click(object sender, EventArgs e) //add_hashtag_of_ava
         {
             var form = new FieldsForm(this);
             type = "add_hashtag_of_ava";
@@ -360,7 +365,7 @@ namespace Final_Project
         public void add_hashtag_of_ava(FieldsForm form)
         {
             var query = @"add_hashtag_of_ava";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@sign", form.box1.Text));
             command.Parameters.Add(new MySqlParameter("@avaID", form.box2.Text));
             command.Parameters.Add(new MySqlParameter("@time", form.box3.Text));
@@ -371,10 +376,11 @@ namespace Final_Project
                 MessageBox.Show("success");
                 form.Close();
             }
+
             form.Close();
         }
 
-        private void button33_Click(object sender, EventArgs e)//GetAvasWithSpecialSign
+        private void button33_Click(object sender, EventArgs e) //GetAvasWithSpecialSign
         {
             var form = new FieldsForm(this);
             type = "GetAvasWithSpecialSign";
@@ -388,10 +394,10 @@ namespace Final_Project
         public void GetAvasWithSpecialSign(FieldsForm form)
         {
             var query = @"GetAvasWithSpecialSign";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@special_sign_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("Ava_id", 400);
             resultPage.listView1.Columns.Add("Attributes", 400);
@@ -409,11 +415,12 @@ namespace Final_Project
                 };
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
 
-        private void button34_Click(object sender, EventArgs e)//likeAva
+        private void button34_Click(object sender, EventArgs e) //likeAva
         {
             var form = new FieldsForm(this);
             type = "likeAva";
@@ -428,7 +435,7 @@ namespace Final_Project
         public void likeAva(FieldsForm form)
         {
             var query = @"likeAva";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@ava_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
             var result = command.ExecuteNonQuery();
@@ -439,7 +446,7 @@ namespace Final_Project
             }
         }
 
-        private void button35_Click(object sender, EventArgs e)//ShowNumberOfLikes
+        private void button35_Click(object sender, EventArgs e) //ShowNumberOfLikes
         {
             var form = new FieldsForm(this);
             type = "ShowNumberOfLikes";
@@ -454,10 +461,10 @@ namespace Final_Project
         public void ShowNumberOfLikes(FieldsForm form)
         {
             var query = @"ShowNumberOfLikes";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@ava_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("number of likes", 400);
             initListView(resultPage);
@@ -469,6 +476,7 @@ namespace Final_Project
                 };
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
@@ -488,10 +496,10 @@ namespace Final_Project
         public void showLikersOfAnAva(FieldsForm form)
         {
             var query = @"showLikersOfAnAva";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@ava_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("like_time", 400);
             resultPage.listView1.Columns.Add("liker_user_name", 400);
@@ -505,6 +513,7 @@ namespace Final_Project
                 };
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
@@ -512,15 +521,15 @@ namespace Final_Project
         private void button37_Click(object sender, EventArgs e)
         {
             var query = @"showPopularAvas";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("count_of_likes", 400);
             resultPage.listView1.Columns.Add("Ava_id", 400);
-            resultPage.listView1.Columns.Add("Attributes", 400);
             resultPage.listView1.Columns.Add("sender_user", 300);
             resultPage.listView1.Columns.Add("time", 500);
+            resultPage.listView1.Columns.Add("Attributes", 400);
             initListView(resultPage);
             while (result.Read())
             {
@@ -534,6 +543,7 @@ namespace Final_Project
                 };
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
         }
 
@@ -561,7 +571,7 @@ namespace Final_Project
         public void send_message(FieldsForm form)
         {
             var query = @"send_message";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@attributes", form.box1.Text));
             command.Parameters.Add(new MySqlParameter("@to_id", form.box2.Text));
             command.Parameters.Add(new MySqlParameter("@text", form.box3.Text));
@@ -572,6 +582,7 @@ namespace Final_Project
                 MessageBox.Show("success");
                 form.Close();
             }
+
             form.Close();
         }
 
@@ -590,10 +601,10 @@ namespace Final_Project
         public void GetMessagesFromSpecialUser(FieldsForm form)
         {
             var query = @"GetMessagesFromSpecialUser";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.Parameters.Add(new MySqlParameter("@from_id", form.box1.Text));
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("from_id", 200);
             resultPage.listView1.Columns.Add("text", 300);
@@ -611,13 +622,16 @@ namespace Final_Project
                     if (objects[i] == null)
                     {
                         arr.Add("");
-                    } else
+                    }
+                    else
                     {
                         arr.Add(objects[i].ToString());
                     }
                 }
+
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
             form.Close();
         }
@@ -625,9 +639,9 @@ namespace Final_Project
         private void button40_Click(object sender, EventArgs e)
         {
             var query = @"Get_List_Of_Senders";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) {CommandTimeout = 60};
             command.CommandType = CommandType.StoredProcedure;
-            var result = command.ExecuteReader();
+            using var result = command.ExecuteReader();
             var resultPage = new result_page();
             resultPage.listView1.Columns.Add("from", 300);
             resultPage.listView1.Columns.Add("time", 500);
@@ -639,6 +653,7 @@ namespace Final_Project
                 arr.Add(result.GetString(1));
                 resultPage.listView1.Items.Add(new ListViewItem(arr.ToArray()));
             }
+
             resultPage.ShowDialog();
         }
     }

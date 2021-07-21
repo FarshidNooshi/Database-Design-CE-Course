@@ -85,12 +85,12 @@ namespace Final_Project
         private void submit_button_click(object sender, EventArgs e)
         {
             var query = @"create_account";
-            var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
+            using var command = new MySqlCommand(query, _mySqlConnection) { CommandTimeout = 60 };
             command.Parameters.Add(new MySqlParameter("@first_name", firstnamebox.Text));
             command.Parameters.Add(new MySqlParameter("@second_name", secondnameBox.Text));
             command.Parameters.Add(new MySqlParameter("@user_name", userbox.Text));
             command.Parameters.Add(new MySqlParameter("@birth_date", birthdatebox.Text));
-            command.Parameters.Add(new MySqlParameter("@password", passwordBox.Text));
+            command.Parameters.Add(new MySqlParameter("@password", _password));
             command.Parameters.Add(new MySqlParameter("@Bio", BioBox.Text));
             command.CommandType = CommandType.StoredProcedure;
             try
@@ -121,7 +121,7 @@ namespace Final_Project
             {
                 timer1.Stop();
                 Hide();
-                var newForm = new LoginForm();
+                var newForm = new Form1();
                 newForm.ShowDialog();
                 Close();
             }
